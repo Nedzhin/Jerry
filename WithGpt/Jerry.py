@@ -105,7 +105,7 @@ if upravlenie == "1":
         print('Чем я могу помочь?')
         userInput = input()
         if (callbackPrint(userInput) == False):
-            openai.api_key = "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"
+            openai.api_key = "YOUR_OPENAI_API_KEY"
             chat_completion = openai.ChatCompletion.create(model="gpt-3.5-turbo", messages=[{"role": "user", "content":userInput}])
             speak(chat_completion["choices"][0]['message']['content'])
         
@@ -118,7 +118,7 @@ elif upravlenie == "2":
             audio = r.listen(source)
         query = r.recognize_google(audio, language="ru-RU")
 
-        openai.api_key = "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"
+        openai.api_key = "YOUR_OPENAI_API_KEY"
         print("Вы сказали:  " + query.lower())
         chat_completion = openai.ChatCompletion.create(model="gpt-3.5-turbo", messages=[{"role": "user", "content":query.lower()}])
 
